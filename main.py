@@ -402,3 +402,5 @@ def delete_course(cid: str, session: SessionDep):
     session.delete(course)
     session.commit()
     return {"ok": True}
+
+print()
