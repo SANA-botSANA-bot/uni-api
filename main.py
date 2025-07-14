@@ -78,13 +78,13 @@ class Person(SQLModel):
         return v
 
     @validator("cphone", pre=True)
-    def validate_hphone(cls, v):
+    def validate_cphone(cls, v):
         if not isinstance(v, str) or not re.match(r'^09\d{9}$', v):
             raise ValueError("تلفن همراه باید مطابق استاندارد ایران باشد (مثال: ۰۹۱۲۳۴۵۶۷۸۹)")
         return v
 
     @validator("hphone", pre=True)
-    def validate_cphone(cls, v):
+    def validate_hphone(cls, v):
         if not isinstance(v, str) or not re.match(r'^0\d{2,3}\d{7}$', v):
             raise ValueError("تلفن ثابت باید مطابق استاندارد ایران باشد (مثال: ۰۲۱۱۲۳۴۵۶۷۸)")
         return v
